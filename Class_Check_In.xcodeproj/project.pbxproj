@@ -14,6 +14,9 @@
 		564FFE2E1AF166ED00214A4E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 564FFE2D1AF166ED00214A4E /* Images.xcassets */; };
 		564FFE311AF166ED00214A4E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 564FFE2F1AF166ED00214A4E /* LaunchScreen.xib */; };
 		564FFE3D1AF166ED00214A4E /* Class_Check_InTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FFE3C1AF166ED00214A4E /* Class_Check_InTests.m */; };
+		564FFE4E1AF1706100214A4E /* DatesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FFE4D1AF1706100214A4E /* DatesTableViewController.m */; };
+		564FFE511AF171A400214A4E /* RosterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FFE501AF171A400214A4E /* RosterTableViewController.m */; };
+		564FFE541AF172A100214A4E /* Class_Check_In_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FFE531AF172A100214A4E /* Class_Check_In_Model.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,12 @@
 		564FFE361AF166ED00214A4E /* Class_Check_InTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Class_Check_InTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		564FFE3B1AF166ED00214A4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		564FFE3C1AF166ED00214A4E /* Class_Check_InTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Class_Check_InTests.m; sourceTree = "<group>"; };
+		564FFE4C1AF1706100214A4E /* DatesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatesTableViewController.h; sourceTree = "<group>"; };
+		564FFE4D1AF1706100214A4E /* DatesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatesTableViewController.m; sourceTree = "<group>"; };
+		564FFE4F1AF171A400214A4E /* RosterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RosterTableViewController.h; sourceTree = "<group>"; };
+		564FFE501AF171A400214A4E /* RosterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RosterTableViewController.m; sourceTree = "<group>"; };
+		564FFE521AF172A100214A4E /* Class_Check_In_Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Class_Check_In_Model.h; sourceTree = "<group>"; };
+		564FFE531AF172A100214A4E /* Class_Check_In_Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Class_Check_In_Model.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,11 +90,11 @@
 		564FFE1F1AF166ED00214A4E /* Class_Check_In */ = {
 			isa = PBXGroup;
 			children = (
+				564FFE491AF16E4200214A4E /* Model */,
+				564FFE4B1AF16E5B00214A4E /* View */,
+				564FFE4A1AF16E5200214A4E /* Controller */,
 				564FFE241AF166ED00214A4E /* AppDelegate.h */,
 				564FFE251AF166ED00214A4E /* AppDelegate.m */,
-				564FFE271AF166ED00214A4E /* ViewController.h */,
-				564FFE281AF166ED00214A4E /* ViewController.m */,
-				564FFE2A1AF166ED00214A4E /* Main.storyboard */,
 				564FFE2D1AF166ED00214A4E /* Images.xcassets */,
 				564FFE2F1AF166ED00214A4E /* LaunchScreen.xib */,
 				564FFE201AF166ED00214A4E /* Supporting Files */,
@@ -117,6 +126,36 @@
 				564FFE3B1AF166ED00214A4E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		564FFE491AF16E4200214A4E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				564FFE521AF172A100214A4E /* Class_Check_In_Model.h */,
+				564FFE531AF172A100214A4E /* Class_Check_In_Model.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		564FFE4A1AF16E5200214A4E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				564FFE4F1AF171A400214A4E /* RosterTableViewController.h */,
+				564FFE501AF171A400214A4E /* RosterTableViewController.m */,
+				564FFE4C1AF1706100214A4E /* DatesTableViewController.h */,
+				564FFE4D1AF1706100214A4E /* DatesTableViewController.m */,
+				564FFE271AF166ED00214A4E /* ViewController.h */,
+				564FFE281AF166ED00214A4E /* ViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		564FFE4B1AF16E5B00214A4E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				564FFE2A1AF166ED00214A4E /* Main.storyboard */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +259,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				564FFE291AF166ED00214A4E /* ViewController.m in Sources */,
+				564FFE511AF171A400214A4E /* RosterTableViewController.m in Sources */,
+				564FFE541AF172A100214A4E /* Class_Check_In_Model.m in Sources */,
+				564FFE4E1AF1706100214A4E /* DatesTableViewController.m in Sources */,
 				564FFE261AF166ED00214A4E /* AppDelegate.m in Sources */,
 				564FFE231AF166ED00214A4E /* main.m in Sources */,
 			);
