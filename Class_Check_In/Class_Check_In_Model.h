@@ -9,5 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface Class_Check_In_Model : NSObject
++ (instancetype) sharedModel;
+- (NSUInteger)numberInRoster;
+- (NSDictionary *)personAtRosterIndex: (NSUInteger) index;
+- (void) insertPerson:(NSDictionary *) person atRosterIndex:(NSUInteger) index;
+- (void) removePersonAtRosterIndex:(NSUInteger) index;
+- (NSUInteger)numberOfDates;
+- (NSDictionary *)dateAtIndex: (NSUInteger) index;
+- (void) insertDate: (NSDictionary *) date atIndex: (NSUInteger) index;
+- (void) removeDateAtIndex: (NSUInteger) index;
 
 @end

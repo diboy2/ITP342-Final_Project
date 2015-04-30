@@ -7,16 +7,16 @@
 //
 
 #import "RosterTableViewController.h"
-
+#import "Class_Check_In_Model.h"
 @interface RosterTableViewController ()
-
+@property (strong, nonatomic) Class_Check_In_Model *model;
 @end
 
 @implementation RosterTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    _model = [Class_Check_In_Model sharedModel];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -34,24 +34,28 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.model numberInRoster];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    static NSString * cellIdentifier = @"StudentCell";
     
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    NSDictionary * personDict = [self.model personAtRosterIndex:indexPath.row];
+    NSString *name = personDict[@"name"];
+    cell.textLabel.text = name;
     // Configure the cell...
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

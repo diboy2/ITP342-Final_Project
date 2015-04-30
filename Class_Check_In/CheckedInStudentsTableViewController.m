@@ -1,27 +1,27 @@
 //
-//  DatesTableViewController.m
+//  CheckedInStudentsTableViewController.m
 //  Class_Check_In
 //
-//  Created by ITP Student on 4/29/15.
+//  Created by ITP on 4/29/15.
 //  Copyright (c) 2015 Adrian Cagaanan. All rights reserved.
 //
 
-#import "DatesTableViewController.h"
-#import "Class_Check_In_Model.h"
-@interface DatesTableViewController ()
-@property (strong,nonatomic) Class_Check_In_Model *model;
+#import "CheckedInStudentsTableViewController.h"
+
+@interface CheckedInStudentsTableViewController ()
+
 @end
 
-@implementation DatesTableViewController
+@implementation CheckedInStudentsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _model = [Class_Check_In_Model sharedModel];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,27 +40,18 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [self.model numberOfDates];
+    return 0;
 }
 
-
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"DateCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    
-    NSDictionary * dateDict = [self.model dateAtIndex:indexPath.row];
-    NSDate *date = dateDict[@"date"];
-    cell.textLabel.text = @"TestDate";
     // Configure the cell...
-//    NSDateFormatter *df = [[NSDateFormatter alloc]init];
-//    
-//    [df setDateFormat:@"dd]
-    
     
     return cell;
 }
-
+*/
 
 /*
 // Override to support conditional editing of the table view.

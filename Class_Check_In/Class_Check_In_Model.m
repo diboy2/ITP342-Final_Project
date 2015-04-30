@@ -15,6 +15,25 @@
 @end
 
 @implementation Class_Check_In_Model
++(instancetype) sharedModel {
+    static Class_Check_In_Model *_sharedModel = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        // thread safe
+        _sharedModel = [[self alloc] init];
+        
+    });
+    
+    return _sharedModel;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    _roster = [[NSMutableArray alloc] init];
+    _dates = [[NSMutableArray alloc] init];
+    return self;
+}
 
 
 - (NSUInteger)numberInRoster{
@@ -40,6 +59,7 @@
         [self.roster removeObjectAtIndex:index];
     }
 }
+
 - (NSUInteger)numberOfDates{
     return [self.dates count];
 }

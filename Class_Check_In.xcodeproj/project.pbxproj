@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5629C8281AF1D94600135CA3 /* RosterInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5629C8271AF1D94600135CA3 /* RosterInputViewController.m */; };
+		5629C82C1AF1E31400135CA3 /* DatesInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5629C82B1AF1E31400135CA3 /* DatesInputViewController.m */; };
+		5629C82F1AF1E7F300135CA3 /* CheckedInStudentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5629C82E1AF1E7F300135CA3 /* CheckedInStudentsTableViewController.m */; };
 		564FFE231AF166ED00214A4E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FFE221AF166ED00214A4E /* main.m */; };
 		564FFE261AF166ED00214A4E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FFE251AF166ED00214A4E /* AppDelegate.m */; };
 		564FFE291AF166ED00214A4E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FFE281AF166ED00214A4E /* ViewController.m */; };
@@ -30,6 +33,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5629C8261AF1D94600135CA3 /* RosterInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RosterInputViewController.h; sourceTree = "<group>"; };
+		5629C8271AF1D94600135CA3 /* RosterInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RosterInputViewController.m; sourceTree = "<group>"; };
+		5629C82A1AF1E31400135CA3 /* DatesInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatesInputViewController.h; sourceTree = "<group>"; };
+		5629C82B1AF1E31400135CA3 /* DatesInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatesInputViewController.m; sourceTree = "<group>"; };
+		5629C82D1AF1E7F300135CA3 /* CheckedInStudentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckedInStudentsTableViewController.h; sourceTree = "<group>"; };
+		5629C82E1AF1E7F300135CA3 /* CheckedInStudentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckedInStudentsTableViewController.m; sourceTree = "<group>"; };
 		564FFE1D1AF166ED00214A4E /* Class_Check_In.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Class_Check_In.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		564FFE211AF166ED00214A4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		564FFE221AF166ED00214A4E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -140,8 +149,14 @@
 		564FFE4A1AF16E5200214A4E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5629C82D1AF1E7F300135CA3 /* CheckedInStudentsTableViewController.h */,
+				5629C82E1AF1E7F300135CA3 /* CheckedInStudentsTableViewController.m */,
+				5629C82A1AF1E31400135CA3 /* DatesInputViewController.h */,
+				5629C82B1AF1E31400135CA3 /* DatesInputViewController.m */,
 				564FFE4F1AF171A400214A4E /* RosterTableViewController.h */,
 				564FFE501AF171A400214A4E /* RosterTableViewController.m */,
+				5629C8261AF1D94600135CA3 /* RosterInputViewController.h */,
+				5629C8271AF1D94600135CA3 /* RosterInputViewController.m */,
 				564FFE4C1AF1706100214A4E /* DatesTableViewController.h */,
 				564FFE4D1AF1706100214A4E /* DatesTableViewController.m */,
 				564FFE271AF166ED00214A4E /* ViewController.h */,
@@ -260,8 +275,11 @@
 			files = (
 				564FFE291AF166ED00214A4E /* ViewController.m in Sources */,
 				564FFE511AF171A400214A4E /* RosterTableViewController.m in Sources */,
+				5629C8281AF1D94600135CA3 /* RosterInputViewController.m in Sources */,
 				564FFE541AF172A100214A4E /* Class_Check_In_Model.m in Sources */,
 				564FFE4E1AF1706100214A4E /* DatesTableViewController.m in Sources */,
+				5629C82C1AF1E31400135CA3 /* DatesInputViewController.m in Sources */,
+				5629C82F1AF1E7F300135CA3 /* CheckedInStudentsTableViewController.m in Sources */,
 				564FFE261AF166ED00214A4E /* AppDelegate.m in Sources */,
 				564FFE231AF166ED00214A4E /* main.m in Sources */,
 			);
@@ -454,6 +472,7 @@
 				564FFE421AF166ED00214A4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		564FFE431AF166ED00214A4E /* Build configuration list for PBXNativeTarget "Class_Check_InTests" */ = {
 			isa = XCConfigurationList;
@@ -462,6 +481,7 @@
 				564FFE451AF166ED00214A4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
