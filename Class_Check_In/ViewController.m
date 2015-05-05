@@ -25,9 +25,21 @@
     
     [self startMediaBrowserFromViewController:self usingDelegate:self];
 }
+
 - (IBAction)showCamera:(id)sender {
+    if([self checkCameraExistance]){
+        self.picker.delegate = self;
+        self.picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:self.picker animated:YES completion:NULL];
+    }
+}
+- (IBAction)showPhotoGallery:(id)sender {
     [self startMediaBrowserFromViewController:self usingDelegate:self];
 }
+
+
+
+
 
 - (BOOL) startMediaBrowserFromViewController: (UIViewController*) controller
                                usingDelegate: (id <UIImagePickerControllerDelegate,
@@ -56,6 +68,7 @@
     [controller presentModalViewController: self.picker animated: YES];
     return YES;
 }
+
 
 
 - (void)didReceiveMemoryWarning {

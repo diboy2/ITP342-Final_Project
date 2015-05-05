@@ -1,27 +1,29 @@
 //
-//  CheckedInStudentsTableViewController.m
+//  AvailableDatesTableViewController.m
 //  Class_Check_In
 //
-//  Created by ITP on 4/29/15.
+//  Created by ITP Student on 5/5/15.
 //  Copyright (c) 2015 Adrian Cagaanan. All rights reserved.
 //
 
+#import "AvailableDatesTableViewController.h"
+#import "Class_Check_In_Model.h"
 #import "CheckedInStudentsTableViewController.h"
-
-@interface CheckedInStudentsTableViewController ()
-
+@interface AvailableDatesTableViewController ()
+@property (strong,nonatomic) Class_Check_In_Model *model;
 @end
 
-@implementation CheckedInStudentsTableViewController
+@implementation AvailableDatesTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _model = [Class_Check_In_Model sharedModel];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,42 +34,28 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
     // Return the number of rows in the section.
-    return [self numberOfCheckedInStudents];
+    return [self.model numberOfDates];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"checkedInStudentCell";
+    
+    static NSString *cellIdentifier = @"AvailableDateCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    NSDictionary * studentDict = [self checkedInStudentAtIndex:indexPath.row];
-    NSString *name = studentDict[@"name"];
-    cell.textLabel.text = name;
-    // Configure the cell...
+    NSDictionary * dateDict = [self.model dateAtIndex:indexPath.row];
+    NSDate *date = dateDict[@"date"];
+    cell.textLabel.text = date;
     
     return cell;
-}
-- (NSUInteger)numberOfCheckedInStudents{
-    return [self.students count];
-}
-
-- (NSDictionary *)checkedInStudentAtIndex: (NSUInteger) index{
-    return [self.students objectAtIndex:index];
-}
-
-- (void) insertCheckedInStudent:(NSDictionary *)student atRosterIndex:(NSUInteger) index{
-    NSUInteger numberOfCheckedInStudents = [self numberOfCheckedInStudents];
-    if(index <= numberOfCheckedInStudents){
-        [self.students
-         insertObject:student
-         atIndex:index];
-    }
 }
 
 
@@ -105,14 +93,18 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
+    CheckedInStudentsTableViewController *checkedInStudentsVC = (CheckedInStudentsTableViewController *)segue.destinationViewController;
+    NSIndexPath *indexPath = self.tableView.indexPathsForSelectedRows[0];
+    NSDictionary *dateDict = [self.model dateAtIndex:indexPath.row];
+    [checkedInStudentsVC setStudents:dateDict[@"students"]];
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

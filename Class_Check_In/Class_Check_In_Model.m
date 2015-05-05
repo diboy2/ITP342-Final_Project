@@ -11,6 +11,7 @@
 //private properties
 @property(strong, nonatomic)NSMutableArray *roster;
 @property(strong, nonatomic)NSMutableArray *dates;
+@property(strong, nonatomic)NSString *datesFilePath;
 
 @end
 
@@ -30,8 +31,16 @@
 - (instancetype)init
 {
     self = [super init];
+    
+    _datesFilePath = [[NSBundle mainBundle] pathForResource:@"dates" ofType:@"plist"];
+    _dates = [NSMutableArray arrayWithContentsOfFile:_datesFilePath];
+    
+    if(!_dates){ // no file
+        
+        
+    }
+    
     _roster = [[NSMutableArray alloc] init];
-    _dates = [[NSMutableArray alloc] init];
     return self;
 }
 

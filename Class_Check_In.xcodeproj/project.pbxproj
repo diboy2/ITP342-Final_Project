@@ -20,6 +20,9 @@
 		564FFE4E1AF1706100214A4E /* DatesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FFE4D1AF1706100214A4E /* DatesTableViewController.m */; };
 		564FFE511AF171A400214A4E /* RosterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FFE501AF171A400214A4E /* RosterTableViewController.m */; };
 		564FFE541AF172A100214A4E /* Class_Check_In_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FFE531AF172A100214A4E /* Class_Check_In_Model.m */; };
+		56CDD5801AF95E4500890A48 /* CheckInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CDD57F1AF95E4500890A48 /* CheckInViewController.m */; };
+		56CDD5841AF9739D00890A48 /* AvailableDatesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CDD5831AF9739D00890A48 /* AvailableDatesTableViewController.m */; };
+		56CDD5891AF9752500890A48 /* dates.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56CDD5881AF9752500890A48 /* dates.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,11 @@
 		564FFE501AF171A400214A4E /* RosterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RosterTableViewController.m; sourceTree = "<group>"; };
 		564FFE521AF172A100214A4E /* Class_Check_In_Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Class_Check_In_Model.h; sourceTree = "<group>"; };
 		564FFE531AF172A100214A4E /* Class_Check_In_Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Class_Check_In_Model.m; sourceTree = "<group>"; };
+		56CDD57E1AF95E4500890A48 /* CheckInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckInViewController.h; sourceTree = "<group>"; };
+		56CDD57F1AF95E4500890A48 /* CheckInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckInViewController.m; sourceTree = "<group>"; };
+		56CDD5821AF9739D00890A48 /* AvailableDatesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvailableDatesTableViewController.h; sourceTree = "<group>"; };
+		56CDD5831AF9739D00890A48 /* AvailableDatesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvailableDatesTableViewController.m; sourceTree = "<group>"; };
+		56CDD5881AF9752500890A48 /* dates.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dates.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +89,7 @@
 		564FFE141AF166EC00214A4E = {
 			isa = PBXGroup;
 			children = (
+				56CDD5881AF9752500890A48 /* dates.plist */,
 				564FFE1F1AF166ED00214A4E /* Class_Check_In */,
 				564FFE391AF166ED00214A4E /* Class_Check_InTests */,
 				564FFE1E1AF166ED00214A4E /* Products */,
@@ -149,18 +158,10 @@
 		564FFE4A1AF16E5200214A4E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5629C82D1AF1E7F300135CA3 /* CheckedInStudentsTableViewController.h */,
-				5629C82E1AF1E7F300135CA3 /* CheckedInStudentsTableViewController.m */,
-				5629C82A1AF1E31400135CA3 /* DatesInputViewController.h */,
-				5629C82B1AF1E31400135CA3 /* DatesInputViewController.m */,
-				564FFE4F1AF171A400214A4E /* RosterTableViewController.h */,
-				564FFE501AF171A400214A4E /* RosterTableViewController.m */,
-				5629C8261AF1D94600135CA3 /* RosterInputViewController.h */,
-				5629C8271AF1D94600135CA3 /* RosterInputViewController.m */,
-				564FFE4C1AF1706100214A4E /* DatesTableViewController.h */,
-				564FFE4D1AF1706100214A4E /* DatesTableViewController.m */,
-				564FFE271AF166ED00214A4E /* ViewController.h */,
-				564FFE281AF166ED00214A4E /* ViewController.m */,
+				56CDD5851AF973BC00890A48 /* AddingDate */,
+				56CDD5861AF973C800890A48 /* AddingInRoster */,
+				56CDD5811AF9737600890A48 /* CheckingIn */,
+				56CDD5871AF973F500890A48 /* Test */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -171,6 +172,50 @@
 				564FFE2A1AF166ED00214A4E /* Main.storyboard */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		56CDD5811AF9737600890A48 /* CheckingIn */ = {
+			isa = PBXGroup;
+			children = (
+				56CDD57E1AF95E4500890A48 /* CheckInViewController.h */,
+				56CDD57F1AF95E4500890A48 /* CheckInViewController.m */,
+				5629C82D1AF1E7F300135CA3 /* CheckedInStudentsTableViewController.h */,
+				5629C82E1AF1E7F300135CA3 /* CheckedInStudentsTableViewController.m */,
+				56CDD5821AF9739D00890A48 /* AvailableDatesTableViewController.h */,
+				56CDD5831AF9739D00890A48 /* AvailableDatesTableViewController.m */,
+			);
+			name = CheckingIn;
+			sourceTree = "<group>";
+		};
+		56CDD5851AF973BC00890A48 /* AddingDate */ = {
+			isa = PBXGroup;
+			children = (
+				5629C82A1AF1E31400135CA3 /* DatesInputViewController.h */,
+				5629C82B1AF1E31400135CA3 /* DatesInputViewController.m */,
+				564FFE4C1AF1706100214A4E /* DatesTableViewController.h */,
+				564FFE4D1AF1706100214A4E /* DatesTableViewController.m */,
+			);
+			name = AddingDate;
+			sourceTree = "<group>";
+		};
+		56CDD5861AF973C800890A48 /* AddingInRoster */ = {
+			isa = PBXGroup;
+			children = (
+				564FFE4F1AF171A400214A4E /* RosterTableViewController.h */,
+				564FFE501AF171A400214A4E /* RosterTableViewController.m */,
+				5629C8261AF1D94600135CA3 /* RosterInputViewController.h */,
+				5629C8271AF1D94600135CA3 /* RosterInputViewController.m */,
+			);
+			name = AddingInRoster;
+			sourceTree = "<group>";
+		};
+		56CDD5871AF973F500890A48 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				564FFE271AF166ED00214A4E /* ViewController.h */,
+				564FFE281AF166ED00214A4E /* ViewController.m */,
+			);
+			name = Test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +267,7 @@
 				TargetAttributes = {
 					564FFE1C1AF166ED00214A4E = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 7FX28RKSGV;
 					};
 					564FFE351AF166ED00214A4E = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -255,6 +301,7 @@
 			files = (
 				564FFE2C1AF166ED00214A4E /* Main.storyboard in Resources */,
 				564FFE311AF166ED00214A4E /* LaunchScreen.xib in Resources */,
+				56CDD5891AF9752500890A48 /* dates.plist in Resources */,
 				564FFE2E1AF166ED00214A4E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,9 +326,11 @@
 				564FFE541AF172A100214A4E /* Class_Check_In_Model.m in Sources */,
 				564FFE4E1AF1706100214A4E /* DatesTableViewController.m in Sources */,
 				5629C82C1AF1E31400135CA3 /* DatesInputViewController.m in Sources */,
+				56CDD5801AF95E4500890A48 /* CheckInViewController.m in Sources */,
 				5629C82F1AF1E7F300135CA3 /* CheckedInStudentsTableViewController.m in Sources */,
 				564FFE261AF166ED00214A4E /* AppDelegate.m in Sources */,
 				564FFE231AF166ED00214A4E /* main.m in Sources */,
+				56CDD5841AF9739D00890A48 /* AvailableDatesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,9 +452,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Adrian Cagaanan (Z6X64U4EW5)";
 				INFOPLIST_FILE = Class_Check_In/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -413,9 +465,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Adrian Cagaanan (Z6X64U4EW5)";
 				INFOPLIST_FILE = Class_Check_In/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

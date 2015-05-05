@@ -12,7 +12,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passcodeTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
-
 @end
 
 @implementation RosterInputViewController
@@ -28,10 +27,16 @@
 }
 
 - (IBAction)saveButtonTapped:(id)sender {
+
 }
 
 - (IBAction)cancelButtonTapped:(id)sender {
 }
+
+- (IBAction)imageButtonTapped:(id)sender {
+    
+}
+
 
 /*
 #pragma mark - Navigation
