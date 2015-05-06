@@ -26,7 +26,7 @@
 }
 - (IBAction)saveButtonTapped:(id)sender {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+    [dateFormatter setDateFormat:@"MM/dd/yyyy"];
     NSString *formattedDate = [dateFormatter stringFromDate:self.datePicker.date];
     if(self.completionHandler){
         self.completionHandler(formattedDate);

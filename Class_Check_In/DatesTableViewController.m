@@ -8,6 +8,7 @@
 
 #import "DatesTableViewController.h"
 #import "Class_Check_In_Model.h"
+#import "DatesInputViewController.h"
 @interface DatesTableViewController ()
 @property (strong,nonatomic) Class_Check_In_Model *model;
 @end
@@ -51,7 +52,7 @@
     
     NSDictionary * dateDict = [self.model dateAtIndex:indexPath.row];
     NSDate *date = dateDict[@"date"];
-    cell.textLabel.text = @"TestDate";
+    cell.textLabel.text = date;
     // Configure the cell...
 //    NSDateFormatter *df = [[NSDateFormatter alloc]init];
 //    
@@ -103,7 +104,21 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-   
+    DatesInputViewController  *datesInputVC = segue.destinationViewController;
+    datesInputVC.completionHandler = ^(NSString *dateText){
+        if(dateText !=nil){
+            NSMutableArray *students= [[NSMutableArray alloc] init];
+            NSDictionary *dateDict = @{
+                                         @"date":dateText,
+                                         @"students":students
+                                         };
+            
+            [self.model insertDate:dateDict atIndex:0];
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+            [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }
+        [self dismissViewControllerAnimated:YES completion:nil];
+    };
     
 }
 
