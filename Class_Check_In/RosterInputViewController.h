@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void(^InputCompletionHandler)(NSString *idText, NSString *nameText, NSString *passcodeText,NSString *imageText);
 @interface RosterInputViewController : UIViewController
-
+@property(copy, nonatomic) InputCompletionHandler completionHandler;
 @end

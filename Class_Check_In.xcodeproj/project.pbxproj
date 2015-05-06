@@ -20,6 +20,7 @@
 		564FFE4E1AF1706100214A4E /* DatesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FFE4D1AF1706100214A4E /* DatesTableViewController.m */; };
 		564FFE511AF171A400214A4E /* RosterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FFE501AF171A400214A4E /* RosterTableViewController.m */; };
 		564FFE541AF172A100214A4E /* Class_Check_In_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FFE531AF172A100214A4E /* Class_Check_In_Model.m */; };
+		567BBF911AFAA7AB007F5161 /* roster.plist in Resources */ = {isa = PBXBuildFile; fileRef = 567BBF901AFAA7AB007F5161 /* roster.plist */; };
 		56CDD5801AF95E4500890A48 /* CheckInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CDD57F1AF95E4500890A48 /* CheckInViewController.m */; };
 		56CDD5841AF9739D00890A48 /* AvailableDatesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CDD5831AF9739D00890A48 /* AvailableDatesTableViewController.m */; };
 		56CDD5891AF9752500890A48 /* dates.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56CDD5881AF9752500890A48 /* dates.plist */; };
@@ -61,6 +62,7 @@
 		564FFE501AF171A400214A4E /* RosterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RosterTableViewController.m; sourceTree = "<group>"; };
 		564FFE521AF172A100214A4E /* Class_Check_In_Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Class_Check_In_Model.h; sourceTree = "<group>"; };
 		564FFE531AF172A100214A4E /* Class_Check_In_Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Class_Check_In_Model.m; sourceTree = "<group>"; };
+		567BBF901AFAA7AB007F5161 /* roster.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = roster.plist; sourceTree = "<group>"; };
 		56CDD57E1AF95E4500890A48 /* CheckInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckInViewController.h; sourceTree = "<group>"; };
 		56CDD57F1AF95E4500890A48 /* CheckInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckInViewController.m; sourceTree = "<group>"; };
 		56CDD5821AF9739D00890A48 /* AvailableDatesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvailableDatesTableViewController.h; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 		564FFE141AF166EC00214A4E = {
 			isa = PBXGroup;
 			children = (
+				567BBF901AFAA7AB007F5161 /* roster.plist */,
 				56CDD5881AF9752500890A48 /* dates.plist */,
 				564FFE1F1AF166ED00214A4E /* Class_Check_In */,
 				564FFE391AF166ED00214A4E /* Class_Check_InTests */,
@@ -302,6 +305,7 @@
 				564FFE2C1AF166ED00214A4E /* Main.storyboard in Resources */,
 				564FFE311AF166ED00214A4E /* LaunchScreen.xib in Resources */,
 				56CDD5891AF9752500890A48 /* dates.plist in Resources */,
+				567BBF911AFAA7AB007F5161 /* roster.plist in Resources */,
 				564FFE2E1AF166ED00214A4E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

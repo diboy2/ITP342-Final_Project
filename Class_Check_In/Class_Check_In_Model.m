@@ -12,6 +12,7 @@
 @property(strong, nonatomic)NSMutableArray *roster;
 @property(strong, nonatomic)NSMutableArray *dates;
 @property(strong, nonatomic)NSString *datesFilePath;
+@property(strong, nonatomic)NSString *rosterFilePath;
 
 @end
 
@@ -34,13 +35,17 @@
     
     _datesFilePath = [[NSBundle mainBundle] pathForResource:@"dates" ofType:@"plist"];
     _dates = [NSMutableArray arrayWithContentsOfFile:_datesFilePath];
-    
+    _rosterFilePath = [[NSBundle mainBundle] pathForResource:@"roster" ofType:@"plist"];
+    _roster = [NSMutableArray arrayWithContentsOfFile:_rosterFilePath];
     if(!_dates){ // no file
         
         
     }
     
-    _roster = [[NSMutableArray alloc] init];
+    if(!_roster){ // no file
+        
+    }
+    
     return self;
 }
 

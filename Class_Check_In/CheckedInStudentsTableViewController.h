@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CheckedInStudentsTableViewController : UITableViewController
-@property (strong, nonatomic) NSMutableArray *students;
+@property (strong, nonatomic) NSDictionary *dateDict;
 @end

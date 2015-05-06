@@ -25,9 +25,18 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)saveButtonTapped:(id)sender {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+    NSString *formattedDate = [dateFormatter stringFromDate:self.datePicker.date];
+    if(self.completionHandler){
+        self.completionHandler(formattedDate);
+    }
 }
 
 - (IBAction)cancelButtonTapped:(id)sender {
+    if(self.completionHandler){
+        self.completionHandler(nil);
+    }
 }
 
 /*

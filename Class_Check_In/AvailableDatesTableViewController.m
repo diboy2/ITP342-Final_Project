@@ -102,7 +102,7 @@
     CheckedInStudentsTableViewController *checkedInStudentsVC = (CheckedInStudentsTableViewController *)segue.destinationViewController;
     NSIndexPath *indexPath = self.tableView.indexPathsForSelectedRows[0];
     NSDictionary *dateDict = [self.model dateAtIndex:indexPath.row];
-    [checkedInStudentsVC setStudents:dateDict[@"students"]];
+    [checkedInStudentsVC setDateDict:dateDict];
     // Pass the selected object to the new view controller.
 }
 

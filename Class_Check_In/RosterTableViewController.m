@@ -8,6 +8,7 @@
 
 #import "RosterTableViewController.h"
 #import "Class_Check_In_Model.h"
+#import "RosterInputViewController.h"
 @interface RosterTableViewController ()
 @property (strong, nonatomic) Class_Check_In_Model *model;
 @end
@@ -32,13 +33,13 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
+
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
     return [self.model numberInRoster];
 }
@@ -50,7 +51,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     NSDictionary * personDict = [self.model personAtRosterIndex:indexPath.row];
     NSString *name = personDict[@"name"];
+    NSString *personId = personDict[@"id"];
     cell.textLabel.text = name;
+    cell.detailTextLabel.text = personId;
     // Configure the cell...
     
     return cell;
@@ -91,14 +94,31 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    RosterInputViewController   *rosterInputVC = segue.destinationViewController;
+    rosterInputVC.completionHandler = ^(NSString *idText, NSString *nameText, NSString *passcodeText,NSString *imageText){
+        if(idText !=nil){
+            NSDictionary *personDict = @{
+            @"name":nameText,
+            @"id":idText,
+            @"passcode":passcodeText,
+            @"image":imageText
+            };
+            
+            [self.model insertPerson:personDict atRosterIndex:0];
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+            [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }
+        [self dismissViewControllerAnimated:YES completion:nil];
+    };
+    
 }
-*/
+
 
 @end

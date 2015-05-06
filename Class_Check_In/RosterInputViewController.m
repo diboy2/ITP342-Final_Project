@@ -8,10 +8,10 @@
 
 #import "RosterInputViewController.h"
 
-@interface RosterInputViewController ()
+@interface RosterInputViewController ()<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *idTextField;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passcodeTextField;
-@property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 @end
 
 @implementation RosterInputViewController
@@ -27,16 +27,28 @@
 }
 
 - (IBAction)saveButtonTapped:(id)sender {
-
+    if(self.completionHandler){
+        self.completionHandler(self.idTextField.text,self.nameTextField.text,self.passcodeTextField.text,@"");
+    }
 }
 
 - (IBAction)cancelButtonTapped:(id)sender {
+    if(self.completionHandler){
+        self.completionHandler(nil,nil,nil,nil);
+    }
 }
+
 
 - (IBAction)imageButtonTapped:(id)sender {
     
 }
 
+
+- (BOOL) textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    
+    return YES;
+}
 
 /*
 #pragma mark - Navigation

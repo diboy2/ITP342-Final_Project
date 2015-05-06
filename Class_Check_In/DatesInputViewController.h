@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef void(^InputCompletionHandler)(NSString *dateText);
 
 @interface DatesInputViewController : UIViewController
-
+@property(copy, nonatomic) InputCompletionHandler completionHandler;
 @end
+

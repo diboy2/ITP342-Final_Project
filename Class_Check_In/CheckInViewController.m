@@ -34,6 +34,8 @@
         [self presentViewController:self.cameraController animated:YES completion:NULL];
     }
 }
+- (IBAction)saveButtonTapped:(id)sender {
+}
 
 - (BOOL) checkCameraExistance{
     if ([UIImagePickerController isSourceTypeAvailable:
