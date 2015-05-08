@@ -9,6 +9,7 @@
 #import "DatesTableViewController.h"
 #import "Class_Check_In_Model.h"
 #import "DatesInputViewController.h"
+#import "CarouselViewController.h"
 @interface DatesTableViewController ()
 @property (strong,nonatomic) Class_Check_In_Model *model;
 @end
@@ -22,7 +23,7 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-     //self.navigationItem.leftBarButtonItem = self.editButtonItem;
+     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,17 +66,18 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        [self.model removeDateAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -98,21 +100,29 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    DatesInputViewController  *datesInputVC = segue.destinationViewController;
-    datesInputVC.completionHandler = ^(NSString *dateText){
-        if(dateText !=nil){
-            NSMutableArray *students= [[NSMutableArray alloc] init];
-            NSDictionary *dateDict = @{
-                                         @"date":dateText,
-                                         @"students":students
-                                         };
+    if([segue.destinationViewController isKindOfClass:[DatesInputViewController class]]){
+        DatesInputViewController  *datesInputVC = segue.destinationViewController;
+        datesInputVC.completionHandler = ^(NSString *dateText){
+            if(dateText !=nil){
+                NSMutableArray *students= [[NSMutableArray alloc] init];
+                NSDictionary *dateDict = @{
+                                           @"date":dateText,
+                                           @"students":students
+                };
             
-            [self.model insertDate:dateDict atIndex:0];
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-            [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        }
-        [self dismissViewControllerAnimated:YES completion:nil];
-    };
+                [self.model insertDate:dateDict atIndex:0];
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+                [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            }
+            [self dismissViewControllerAnimated:YES completion:nil];
+        };
+    }
+    else if([segue.destinationViewController isKindOfClass:[CarouselViewController class]]){
+        CarouselViewController *carouselVC = (CarouselViewController *)segue.destinationViewController;
+        NSIndexPath *indexPath = self.tableView.indexPathsForSelectedRows[0];
+        NSDictionary *dateDict = [self.model dateAtIndex:indexPath.row];
+        [carouselVC setDateDict:dateDict];
+    }
     
 }
 

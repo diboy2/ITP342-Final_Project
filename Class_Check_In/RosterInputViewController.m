@@ -9,6 +9,7 @@
 #import "RosterInputViewController.h"
 
 @interface RosterInputViewController ()<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 @property (weak, nonatomic) IBOutlet UITextField *idTextField;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passcodeTextField;
@@ -27,6 +28,33 @@
 }
 
 - (IBAction)saveButtonTapped:(id)sender {
+    if(![self checkText:self.idTextField.text]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Id Field Empty"
+                                                        message:@"Enter Id"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    if(![self checkText:self.nameTextField.text]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Name Field Empty"
+                                                        message:@"Enter Name"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    if(![self checkText:self.passcodeTextField.text]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Passcode Field Empty"
+                                                        message:@"Enter Passcode"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
     if(self.completionHandler){
         self.completionHandler(self.idTextField.text,self.nameTextField.text,self.passcodeTextField.text,@"");
     }
@@ -50,6 +78,13 @@
     return YES;
 }
 
+-(BOOL) checkText:(NSString *)text{
+    if([text isEqualToString:@""] || text ==nil){
+        return NO;
+    }
+    
+    return YES;
+}
 /*
 #pragma mark - Navigation
 

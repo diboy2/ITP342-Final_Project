@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A1FA0A71AFCD95400F13359 /* CarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1FA0A61AFCD95400F13359 /* CarouselViewController.m */; };
+		3A2818A21AFCD2FE00BD1D46 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2818A11AFCD2FE00BD1D46 /* iCarousel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3A2818A41AFCD33800BD1D46 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A2818A31AFCD33800BD1D46 /* QuartzCore.framework */; };
+		3A8EC1B31AFCE59C003569F6 /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8EC1B21AFCE59C003569F6 /* page.png */; };
 		5629C8281AF1D94600135CA3 /* RosterInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5629C8271AF1D94600135CA3 /* RosterInputViewController.m */; };
 		5629C82C1AF1E31400135CA3 /* DatesInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5629C82B1AF1E31400135CA3 /* DatesInputViewController.m */; };
 		5629C82F1AF1E7F300135CA3 /* CheckedInStudentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5629C82E1AF1E7F300135CA3 /* CheckedInStudentsTableViewController.m */; };
@@ -37,6 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A1FA0A51AFCD95400F13359 /* CarouselViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselViewController.h; sourceTree = "<group>"; };
+		3A1FA0A61AFCD95400F13359 /* CarouselViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselViewController.m; sourceTree = "<group>"; };
+		3A2818A01AFCD2FE00BD1D46 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		3A2818A11AFCD2FE00BD1D46 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		3A2818A31AFCD33800BD1D46 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3A8EC1B21AFCE59C003569F6 /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page.png; sourceTree = "<group>"; };
 		5629C8261AF1D94600135CA3 /* RosterInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RosterInputViewController.h; sourceTree = "<group>"; };
 		5629C8271AF1D94600135CA3 /* RosterInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RosterInputViewController.m; sourceTree = "<group>"; };
 		5629C82A1AF1E31400135CA3 /* DatesInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatesInputViewController.h; sourceTree = "<group>"; };
@@ -75,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A2818A41AFCD33800BD1D46 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,9 +99,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A28189F1AFCD2FE00BD1D46 /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				3A2818A01AFCD2FE00BD1D46 /* iCarousel.h */,
+				3A2818A11AFCD2FE00BD1D46 /* iCarousel.m */,
+			);
+			path = iCarousel;
+			sourceTree = "<group>";
+		};
 		564FFE141AF166EC00214A4E = {
 			isa = PBXGroup;
 			children = (
+				3A8EC1B21AFCE59C003569F6 /* page.png */,
+				3A2818A31AFCD33800BD1D46 /* QuartzCore.framework */,
+				3A28189F1AFCD2FE00BD1D46 /* iCarousel */,
 				567BBF901AFAA7AB007F5161 /* roster.plist */,
 				56CDD5881AF9752500890A48 /* dates.plist */,
 				564FFE1F1AF166ED00214A4E /* Class_Check_In */,
@@ -193,6 +216,8 @@
 		56CDD5851AF973BC00890A48 /* AddingDate */ = {
 			isa = PBXGroup;
 			children = (
+				3A1FA0A51AFCD95400F13359 /* CarouselViewController.h */,
+				3A1FA0A61AFCD95400F13359 /* CarouselViewController.m */,
 				5629C82A1AF1E31400135CA3 /* DatesInputViewController.h */,
 				5629C82B1AF1E31400135CA3 /* DatesInputViewController.m */,
 				564FFE4C1AF1706100214A4E /* DatesTableViewController.h */,
@@ -304,6 +329,7 @@
 			files = (
 				564FFE2C1AF166ED00214A4E /* Main.storyboard in Resources */,
 				564FFE311AF166ED00214A4E /* LaunchScreen.xib in Resources */,
+				3A8EC1B31AFCE59C003569F6 /* page.png in Resources */,
 				56CDD5891AF9752500890A48 /* dates.plist in Resources */,
 				567BBF911AFAA7AB007F5161 /* roster.plist in Resources */,
 				564FFE2E1AF166ED00214A4E /* Images.xcassets in Resources */,
@@ -327,12 +353,14 @@
 				564FFE291AF166ED00214A4E /* ViewController.m in Sources */,
 				564FFE511AF171A400214A4E /* RosterTableViewController.m in Sources */,
 				5629C8281AF1D94600135CA3 /* RosterInputViewController.m in Sources */,
+				3A1FA0A71AFCD95400F13359 /* CarouselViewController.m in Sources */,
 				564FFE541AF172A100214A4E /* Class_Check_In_Model.m in Sources */,
 				564FFE4E1AF1706100214A4E /* DatesTableViewController.m in Sources */,
 				5629C82C1AF1E31400135CA3 /* DatesInputViewController.m in Sources */,
 				56CDD5801AF95E4500890A48 /* CheckInViewController.m in Sources */,
 				5629C82F1AF1E7F300135CA3 /* CheckedInStudentsTableViewController.m in Sources */,
 				564FFE261AF166ED00214A4E /* AppDelegate.m in Sources */,
+				3A2818A21AFCD2FE00BD1D46 /* iCarousel.m in Sources */,
 				564FFE231AF166ED00214A4E /* main.m in Sources */,
 				56CDD5841AF9739D00890A48 /* AvailableDatesTableViewController.m in Sources */,
 			);

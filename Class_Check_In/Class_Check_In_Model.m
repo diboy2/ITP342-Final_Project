@@ -38,28 +38,26 @@ NSString *const RosterPlist = @"roster.plist";
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    _datesFilePath = [documentsDirectory stringByAppendingString:DatesPlist];
-    _rosterFilePath = [documentsDirectory stringByAppendingString:RosterPlist];
+    _datesFilePath = [documentsDirectory stringByAppendingPathComponent:DatesPlist];
+    _rosterFilePath = [documentsDirectory stringByAppendingPathComponent:RosterPlist];
     
     _dates = [NSMutableArray arrayWithContentsOfFile:_datesFilePath];
     _roster = [NSMutableArray arrayWithContentsOfFile:_rosterFilePath];
     
     if(!_dates){ // no file
-        _datesFilePath = [[NSBundle mainBundle] pathForResource:@"dates" ofType:@"plist"];
-        _dates = [NSMutableArray arrayWithContentsOfFile:_datesFilePath];
+        NSString *tempDatesFilePath = [[NSBundle mainBundle] pathForResource:@"dates" ofType:@"plist"];
+        _dates = [NSMutableArray arrayWithContentsOfFile:tempDatesFilePath];
         
     }
     
     if(!_roster){ // no file
-        _rosterFilePath = [[NSBundle mainBundle] pathForResource:@"roster" ofType:@"plist"];
-        _roster = [NSMutableArray arrayWithContentsOfFile:_rosterFilePath];
+        NSString *tempRosterFilePath = [[NSBundle mainBundle] pathForResource:@"roster" ofType:@"plist"];
+        _roster = [NSMutableArray arrayWithContentsOfFile:tempRosterFilePath];
     }
-    
+    NSLog(@"Documents Directory: %@", [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject]);
     return self;
 }
 - (void) save{
-    
-    
     [self.dates writeToFile:self.datesFilePath atomically:YES];
     [self.roster writeToFile:self.rosterFilePath atomically:YES];
 }
@@ -117,7 +115,7 @@ NSString *const RosterPlist = @"roster.plist";
 }
 - (NSUInteger) dateIndexWhereIdEquals:(NSString *)personId{
     
-    NSUInteger index = [self.dates indexOfObjectPassingTest:^BOOL(NSDictionary *item, NSUInteger idx, BOOL *stop){
+    NSUInteger index = [self.roster indexOfObjectPassingTest:^BOOL(NSDictionary *item, NSUInteger idx, BOOL *stop){
         BOOL found =[[item objectForKey:@"id"] isEqualToString:personId];
         return found;
     }];

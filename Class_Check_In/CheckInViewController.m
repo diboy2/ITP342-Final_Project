@@ -8,7 +8,7 @@
 
 #import "CheckInViewController.h"
 #import "Class_Check_In_Model.h"
-@interface CheckInViewController ()
+@interface CheckInViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *checkInImage;
 @property(strong, nonatomic) UIImagePickerController *cameraController;
 @property (weak, nonatomic) IBOutlet UITextField *idTextField;
@@ -47,11 +47,21 @@
                 self.completionHandler(person[@"id"],person[@"name"],person[@"image"],personImage);
             }
             else{
-                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wrong Password"
+                                                                message:@"You must enter the right password to save"
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                    otherButtonTitles:nil];
+                [alert show];
             }
         }
         else{
-            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ID not found"
+                                                            message:@"Are you sure you typed the right id?"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
         }
         
     }
@@ -97,6 +107,11 @@ picker {
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    
+    return YES;
+}
 
 
 @end

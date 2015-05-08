@@ -56,7 +56,12 @@
     NSString *name = studentDict[@"name"];
     cell.textLabel.text = name;
     // Configure the cell...
-    
+    NSString *date = self.dateDict[@"date"];
+    NSString *dateFolderPath = [self createDateFolder:date];
+    NSString *imageFile = [NSString stringWithFormat:@"%@.png",studentDict[@"id"]];
+    NSString *imagePath = [dateFolderPath stringByAppendingPathComponent:imageFile];
+    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
+    cell.imageView.image = image;
     return cell;
 }
 - (NSUInteger)numberOfCheckedInStudents{
@@ -132,10 +137,17 @@
             @"name":nameText,
             @"image":imageText
             };
-            [self.students insertObject:student atIndex:0];
-            [self.model save];
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-            [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            NSUInteger index = [self indexWhereIdEquals:idText];
+            if (index == NSNotFound){
+                [self.students insertObject:student atIndex:0];
+                [self.model save];
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+                [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            }
+            else {
+                [self.tableView reloadData];
+            }
+            
         }
         
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -147,7 +159,7 @@
 -(NSString *)createDateFolder:(NSString *) date{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *dateFolder = [NSString stringWithFormat: @"/%@",date];
+    NSString *dateFolder = [NSString stringWithFormat: @"%@",date];
     NSString *dateFolderPath = [documentsDirectory stringByAppendingPathComponent:dateFolder];
     
     if(![[NSFileManager defaultManager] fileExistsAtPath:dateFolderPath]){
@@ -156,4 +168,12 @@
     return dateFolderPath;
 }
 
+- (NSUInteger) indexWhereIdEquals:(NSString *)personId{
+    
+    NSUInteger index = [self.students indexOfObjectPassingTest:^BOOL(NSDictionary *item, NSUInteger idx, BOOL *stop){
+        BOOL found =[[item objectForKey:@"id"] isEqualToString:personId];
+        return found;
+    }];
+    return index;
+}
 @end
