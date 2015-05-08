@@ -14,10 +14,12 @@
 		<key>students</key>
 		<array>
 			<dict>
+				<key>id</key>
+				<string>123</string>
 				<key>name</key>
 				<string>Bob Builder</string>
 				<key>image</key>
-				<string>Bob_Builder.png</string>
+				<string>123.png</string>
 			</dict>
 		</array>
 	</dict>

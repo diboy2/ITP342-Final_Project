@@ -33,13 +33,11 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [self.model numberOfDates];
 }
@@ -51,13 +49,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     NSDictionary * dateDict = [self.model dateAtIndex:indexPath.row];
-    NSDate *date = dateDict[@"date"];
+    NSString *date = dateDict[@"date"];
     cell.textLabel.text = date;
     // Configure the cell...
-//    NSDateFormatter *df = [[NSDateFormatter alloc]init];
-//    
-//    [df setDateFormat:@"dd]
-    
     
     return cell;
 }

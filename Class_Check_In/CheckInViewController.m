@@ -7,10 +7,13 @@
 //
 
 #import "CheckInViewController.h"
-
+#import "Class_Check_In_Model.h"
 @interface CheckInViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *checkInImage;
 @property(strong, nonatomic) UIImagePickerController *cameraController;
+@property (weak, nonatomic) IBOutlet UITextField *idTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passcodeTextField;
+@property (strong, nonatomic) Class_Check_In_Model *model;
 @end
 
 @implementation CheckInViewController
@@ -18,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _cameraController = [[UIImagePickerController alloc] init];
-    
+    _model = [Class_Check_In_Model  sharedModel];
     
     // Do any additional setup after loading the view.
 }
@@ -35,6 +38,23 @@
     }
 }
 - (IBAction)saveButtonTapped:(id)sender {
+    if(self.completionHandler){
+        NSUInteger arrayIndex = [self.model dateIndexWhereIdEquals:self.idTextField.text];
+        if(arrayIndex != NSNotFound){
+            NSDictionary *person = [self.model personAtRosterIndex:arrayIndex];
+            if([person[@"passcode"] isEqualToString:self.passcodeTextField.text]){
+                UIImage *personImage = self.checkInImage.currentBackgroundImage;
+                self.completionHandler(person[@"id"],person[@"name"],person[@"image"],personImage);
+            }
+            else{
+                
+            }
+        }
+        else{
+            
+        }
+        
+    }
 }
 
 - (BOOL) checkCameraExistance{
@@ -46,6 +66,13 @@
         return NO;
     }
 }
+
+- (IBAction)cancelButtonTapped:(id)sender {
+    if(self.completionHandler){
+        self.completionHandler(nil,nil,nil,nil);
+    }
+}
+
 /*
 #pragma mark - Navigation
 

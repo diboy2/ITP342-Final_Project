@@ -7,9 +7,13 @@
 //
 
 #import "CheckedInStudentsTableViewController.h"
+#import "CheckInViewController.h"
+#import "Class_Check_In_Model.h"
+
 
 @interface CheckedInStudentsTableViewController ()
 @property(strong, nonatomic) NSMutableArray *students;
+@property(strong, nonatomic) Class_Check_In_Model   *model;
 @end
 
 @implementation CheckedInStudentsTableViewController
@@ -17,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _students = _dateDict[@"students"];
+    _model = [Class_Check_In_Model sharedModel];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -105,14 +111,49 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    CheckInViewController  *checkInVC = segue.destinationViewController;
+    checkInVC.completionHandler = ^(NSString *idText, NSString *nameText, NSString *imageText, UIImage *personImage){
+        if(idText !=nil){
+            NSString *date = self.dateDict[@"date"];
+            NSString *dateFolderPath = [self createDateFolder:date];
+            NSData *pngData = UIImagePNGRepresentation(personImage);
+            NSString *imageFile = [NSString stringWithFormat:@"%@.png",idText];
+            NSString *imagePath = [dateFolderPath stringByAppendingPathComponent:imageFile];
+            [pngData writeToFile:imagePath atomically:YES];
+            NSDictionary *student = @{
+            @"id":idText,
+            @"name":nameText,
+            @"image":imageText
+            };
+            [self.students insertObject:student atIndex:0];
+            [self.model save];
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+            [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    };
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
-*/
+
+-(NSString *)createDateFolder:(NSString *) date{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *dateFolder = [NSString stringWithFormat: @"/%@",date];
+    NSString *dateFolderPath = [documentsDirectory stringByAppendingPathComponent:dateFolder];
+    
+    if(![[NSFileManager defaultManager] fileExistsAtPath:dateFolderPath]){
+        [[NSFileManager defaultManager] createDirectoryAtPath:dateFolderPath withIntermediateDirectories:NO attributes:nil error:nil];
+    }
+    return dateFolderPath;
+}
 
 @end

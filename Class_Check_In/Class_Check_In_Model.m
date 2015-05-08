@@ -15,6 +15,9 @@
 @property(strong, nonatomic)NSString *rosterFilePath;
 
 @end
+// plist Filename
+NSString *const DatesPlist = @"dates.plist";
+NSString *const RosterPlist = @"roster.plist";
 
 @implementation Class_Check_In_Model
 +(instancetype) sharedModel {
@@ -33,22 +36,33 @@
 {
     self = [super init];
     
-    _datesFilePath = [[NSBundle mainBundle] pathForResource:@"dates" ofType:@"plist"];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    _datesFilePath = [documentsDirectory stringByAppendingString:DatesPlist];
+    _rosterFilePath = [documentsDirectory stringByAppendingString:RosterPlist];
+    
     _dates = [NSMutableArray arrayWithContentsOfFile:_datesFilePath];
-    _rosterFilePath = [[NSBundle mainBundle] pathForResource:@"roster" ofType:@"plist"];
     _roster = [NSMutableArray arrayWithContentsOfFile:_rosterFilePath];
+    
     if(!_dates){ // no file
-        
+        _datesFilePath = [[NSBundle mainBundle] pathForResource:@"dates" ofType:@"plist"];
+        _dates = [NSMutableArray arrayWithContentsOfFile:_datesFilePath];
         
     }
     
     if(!_roster){ // no file
-        
+        _rosterFilePath = [[NSBundle mainBundle] pathForResource:@"roster" ofType:@"plist"];
+        _roster = [NSMutableArray arrayWithContentsOfFile:_rosterFilePath];
     }
     
     return self;
 }
-
+- (void) save{
+    
+    
+    [self.dates writeToFile:self.datesFilePath atomically:YES];
+    [self.roster writeToFile:self.rosterFilePath atomically:YES];
+}
 
 - (NSUInteger)numberInRoster{
     return [self.roster count];
@@ -64,6 +78,7 @@
         [self.roster
          insertObject:person
          atIndex:index];
+        [self save];
     }
 }
 
@@ -71,6 +86,7 @@
     NSUInteger numberInRoster = [self numberInRoster];
     if(index < numberInRoster){
         [self.roster removeObjectAtIndex:index];
+        [self save];
     }
 }
 
@@ -87,6 +103,7 @@
         [self.dates
          insertObject:date
          atIndex:index];
+        [self save];
     }
 }
 
@@ -94,7 +111,17 @@
     NSUInteger numOfDates = [self numberOfDates];
     if(index < numOfDates){
         [self.dates removeObjectAtIndex:index];
+        [self save];
     }
     
 }
+- (NSUInteger) dateIndexWhereIdEquals:(NSString *)personId{
+    
+    NSUInteger index = [self.dates indexOfObjectPassingTest:^BOOL(NSDictionary *item, NSUInteger idx, BOOL *stop){
+        BOOL found =[[item objectForKey:@"id"] isEqualToString:personId];
+        return found;
+    }];
+    return index;
+}
+
 @end

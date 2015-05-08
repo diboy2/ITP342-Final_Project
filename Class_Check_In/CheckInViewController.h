@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef void(^InputCompletionHandler)(NSString *idText, NSString *nameText, NSString *imageText, UIImage *personImage);
 
 @interface CheckInViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
-
+@property(copy, nonatomic) InputCompletionHandler completionHandler;
 @end

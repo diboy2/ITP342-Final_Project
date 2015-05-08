@@ -18,5 +18,6 @@
 - (NSDictionary *)dateAtIndex: (NSUInteger) index;
 - (void) insertDate: (NSDictionary *) date atIndex: (NSUInteger) index;
 - (void) removeDateAtIndex: (NSUInteger) index;
-
+-(NSUInteger) dateIndexWhereIdEquals:(NSString *)personId;
+- (void) save;
 @end
